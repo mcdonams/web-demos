@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>jQuery.FileUpload</id>
+    <version>9.5.4</version>
+    <title>jQuery.FileUpload</title>
+    <authors>Sebastian Tschan</authors>
+    <owners>Sebastian Tschan</owners>
+    <licenseUrl>http://www.opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>http://blueimp.github.io/jQuery-File-Upload/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>File Upload widget with multiple file selection, drag&amp;drop support, progress bar, validation and preview images, audio and video for jQuery.
+         Supports cross-domain, chunked and resumable file uploads. Works with any server-side platform (Google App Engine, PHP, Python, Ruby on Rails, Java, etc.)
+         that supports standard HTML form file uploads.</description>
+    <summary>File Upload widget with multiple file selection, drag&amp;drop support, progress bar, validation and preview images, audio and video for jQuery.</summary>
+    <releaseNotes />
+    <copyright>Copyright  2014</copyright>
+    <language>en-US</language>
+    <dependencies>
+      <dependency id="jQuery" version="1.6.0" />
+      <dependency id="jQuery.UI.Combined" version="1.9.0" />
+    </dependencies>
+  </metadata>
+</package>

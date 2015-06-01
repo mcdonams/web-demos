@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Basic";
+}
+
+<h2>File Upload Example Using Basic <a href="https://github.com/blueimp/jQuery-File-Upload/wiki/Basic-plugin">jQuery-File-Upload</a> config</h2>
+
+<div>
+    <form>
+        <div>
+            <input id="fileToUpload" type="file" name="files[]" data-url="Upload">
+        </div>
+        <div>
+            <input type="text" id="txtTest" name="txtTest" />
+        </div>
+        <div>
+            <br />
+            <button id="startUpload">Upload</button>
+        </div>
+    </form>
+</div>
+<div id="imagePreview">
+</div>
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryFileUpload")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            initUpload();
+        });
+
+        function initUpload() {
+            $('#fileToUpload').fileupload({
+                url: 'Upload',
+                autoUpload: true,
+                //acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+                sequentialUploads: true,
+                replaceFileInput: false
+                //add: function () {
+                //    alert('added');
+                //}
+                //previewMaxWidth: 100,
+                //previewMaxHeight: 100,
+                //previewCrop: true
+            }).on('fileuploadadd', function (e, data) {
+                //alert('added');
+                $.each(data.files, function (index, file) {
+                    console.log(file);
+                });
+                $("#startUpload").one('click', function () {
+                    data.submit();
+                });
+            }).on('fileuploaddone', function (e, data) {
+                console.log(data);
+                $('#fileToUpload').val('');
+                // Load image preview
+                $("<img/>").attr("src", "@Url.Action("GetFile", "FileUpload", new { id = "ea1e818d-39e0-4c6f-a50b-64241506cb77" })").appendTo("#imagePreview");
+            }).on('fileuploadprocessalways', function (e, data) {
+                alert('processed');
+            });
+        }
+    </script>
+}
